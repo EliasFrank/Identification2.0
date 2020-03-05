@@ -1,0 +1,22 @@
+<tabs>
+    <tab
+        id="@+id/tab1"
+        barColorWhenSelected="#F0F3F6"
+        icon="@drawable/ic_watch"
+        title="@string/tab1" />
+    <tab
+        id="@+id/tab2"
+        barColorWhenSelected="#F0F3F6"
+        icon="@drawable/ic_prevent"
+        title="@string/tab2" />
+    <tab
+        id="@+id/tab3"
+        barColorWhenSelected="#F0F3F6"
+        icon="@drawable/ic_community"
+        title="@string/tab3" />
+    <tab
+        id="@+id/tab4"
+        barColorWhenSelected="#F0F3F6"
+        icon="@drawable/ic_my"
+        title="@string/tab4" />
+</tabs>

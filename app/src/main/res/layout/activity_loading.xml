@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".myactivity.LoadingActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:background="@drawable/loading"
+        >
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            >
+            <Button
+                android:id="@+id/button_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5s跳过"
+                android:background="@drawable/circle2"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                >
+            </Button>
+        </FrameLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        >
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+           android:text="果蝇识别"
+           android:textColor="#0F81D8"
+           android:textSize="30sp"
+           >
+
+       </TextView>
+    </RelativeLayout>
+
+</LinearLayout>

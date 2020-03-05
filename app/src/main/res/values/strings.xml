@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Identification2.0</string>
+    <string name="tab1">识别</string>
+    <string name="tab2">预防</string>
+    <string name="tab3">社区</string>
+    <string name="tab4">我的</string>
+</resources>
