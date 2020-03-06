@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity  {
                         replaceFragment(new PreventFragment());
                         break;
                     case R.id.tab3:
+                        //切换到论坛页面
                         break;
                     case R.id.tab4:
                         break;
