@@ -31,8 +31,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class WatchFragment extends Fragment {
-     private ImageButton button_camera;
-     private ImageButton button_photo;
+     private ImageButton button_camera;private ImageButton button_photo;
     private static Button watch_button;
     private static ImageView picture ;
     private static  ProgressDialog progressDialog;

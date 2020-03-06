@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity  {
             nowFragment = fragment;
             fragmentTransaction.commit();
     }
-    //xxxxxchenhao
+    //lpxnp
     //调用相机和相册后的操作
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
