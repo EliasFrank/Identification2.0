@@ -14,7 +14,6 @@ import java.io.IOException;
 public class MyCrop {
     private static final int CROP_PHOTO=4;
     private static final int CROP_PHOTO_1=3;
-
     /**
      * 调用裁剪功能
      * @param uri
@@ -56,10 +55,10 @@ public class MyCrop {
             fos.close();
             if(requestCode ==CROP_PHOTO ) {
                 //保存裁剪后的图片路径
-                MyCamera.setPath(file.getAbsolutePath());
+                MyCamera.setImagePath(file.getAbsolutePath());
                 MyResult.setImagePath(file.getAbsolutePath());
             }else if(requestCode == CROP_PHOTO_1) {
-                MyPhoto.setPath(file.getAbsolutePath());
+                MyPhoto.setImagePath(file.getAbsolutePath());
                 MyResult.setImagePath(file.getAbsolutePath());
             }
         } catch (IOException e) {

@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import android.content.Context;
+
 import android.content.Intent;
+
 import android.graphics.Bitmap;
 import android.os.Bundle;
+
 import com.example.identification20.R;
 import com.example.identification20.myfragment.MeFragment;
 import com.example.identification20.myfragment.PreventFragment;
@@ -18,16 +20,19 @@ import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
 public class MainActivity extends AppCompatActivity  {
-    private static final int CHOOSE_PHOTO= 2;
-    private static final int TAKE_CAMERA=1;
+    private static final int CHOOSE_PHOTO= 5;
+    private static final int TAKE_CAMERA=6;
+    private static final int CHOOSE_PHOTO_CROP= 2;
+    private static final int TAKE_CAMERA_CROP=1;
     private static final int CROP_PHOTO=4;
     private static final int CROP_PHOTO_1=3;
+    private static final int CROP_PHOTO_2=7;
+    private static final int CROP_PHOTO_3=8;
     private BottomBar bottomBar;
     private Fragment oneFragment,nowFragment;
     FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //保证可以获取到该活动的context
         //加载布局
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -85,15 +90,20 @@ public class MainActivity extends AppCompatActivity  {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode ==RESULT_OK) {
             switch (requestCode){
-                case CHOOSE_PHOTO:
-                    //从相册选取图片后调用裁剪功能
-                    MyCrop.openCorp(data.getData(),MainActivity.this,CROP_PHOTO_1);
-                    break;
                 case TAKE_CAMERA:
+                    MyCrop.openCorp(MyCamera.getImageUri(),MainActivity.this,CROP_PHOTO_2);
+                    break;
+                case CHOOSE_PHOTO:
+                    MyCrop.openCorp(data.getData(),MainActivity.this,CROP_PHOTO_3);
+                    break;
+                case TAKE_CAMERA_CROP:
                     MyCrop.openCorp(MyCamera.getImageUri(),MainActivity.this,CROP_PHOTO);
                     break;
-                case CROP_PHOTO_1:
+                case CHOOSE_PHOTO_CROP:
+                    MyCrop.openCorp(data.getData(),MainActivity.this,CROP_PHOTO_1);
+                    break;
                 case CROP_PHOTO:
+                case CROP_PHOTO_1:
                     Bundle bundle = data.getExtras();
                     if (bundle != null) {
                         //在这里获得了剪裁后的Bitmap对象，可以用于上传
@@ -104,7 +114,22 @@ public class MainActivity extends AppCompatActivity  {
                         MyCrop.saveImage("crop", image,requestCode);
                     }
                     break;
+                case CROP_PHOTO_2:
+                case CROP_PHOTO_3:
+                    Bundle bundle1 = data.getExtras();
+                    if (bundle1 != null) {
+                        //在这里获得了剪裁后的Bitmap对象，可以用于上传
+                        Bitmap image = bundle1.getParcelable("data");
+                        //设置到ImageView上
+                        MeFragment.getImageView().setImageBitmap(image);
+                        MeFragment.getCricleImageView().setImageBitmap(image);
+                        //也可以进行一些保存、压缩等操作后上传
+
+                    }
+                    break;
+
             }
         }
     }
+
 }

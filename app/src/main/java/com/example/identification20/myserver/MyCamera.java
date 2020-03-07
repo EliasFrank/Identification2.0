@@ -17,13 +17,14 @@ import java.io.IOException;
 
 public class MyCamera {
     //相机
-    private static final int TAKE_CAMERA=1;
     private static Uri imageUri=null;
     private AppCompatActivity myActivity;
     private static File outputImage;
     private static String imagePath;
-    public MyCamera( AppCompatActivity  myActivity){
+    private static int requestflag;
+    public MyCamera( AppCompatActivity  myActivity,int requestflag){
         this.myActivity = myActivity;
+        this.requestflag = requestflag;
     }
     public void initCamera(){
          outputImage = new File(myActivity.getExternalCacheDir(), "output_image.jpg");
@@ -46,7 +47,7 @@ public class MyCamera {
         //隐式Intent，启动相机程序
         Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
         intent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
-        myActivity.startActivityForResult(intent,TAKE_CAMERA);
+        myActivity.startActivityForResult(intent,requestflag);
     }
     //通过这个方法调用相机
     public void openCamera(){
@@ -75,7 +76,7 @@ public class MyCamera {
     public static Uri getImageUri(){
         return imageUri;
     }
-    public static void setPath(String Path){
+    public static void setImagePath(String Path){
         imagePath=Path;
     }
 

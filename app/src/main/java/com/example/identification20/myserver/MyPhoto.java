@@ -10,11 +10,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 public class MyPhoto  {
-    private static final int CHOOSE_PHOTO= 2;
     private AppCompatActivity myActivity;
     private  static String imagePath;
-    public MyPhoto( AppCompatActivity  myActivity){
+    private static int requestflag;
+    public MyPhoto( AppCompatActivity  myActivity,int requestflag){
         this.myActivity = myActivity;
+        this.requestflag = requestflag;
     }
     //通过这个方法调用图册
     public void openPhoto(){
@@ -29,7 +30,7 @@ public class MyPhoto  {
     private void openAlbum() {
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.setType("image/*");
-        myActivity.startActivityForResult(intent,CHOOSE_PHOTO);
+        myActivity.startActivityForResult(intent,requestflag);
     }
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
@@ -42,7 +43,10 @@ public class MyPhoto  {
                 break;
         }
     }
-    public static void setPath(String Path){
+    public static void setImagePath(String Path){
         imagePath=Path;
+    }
+    public static String getImagePath(){
+        return imagePath;
     }
 }

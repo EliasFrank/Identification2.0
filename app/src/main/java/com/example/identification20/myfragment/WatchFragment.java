@@ -14,7 +14,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.identification20.R;
-import com.example.identification20.myactivity.LoadingActivity;
 import com.example.identification20.myactivity.MainActivity;
 import com.example.identification20.myactivity.ResultActivity;
 import com.example.identification20.myserver.MyCamera;
@@ -31,7 +30,10 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class WatchFragment extends Fragment {
-     private ImageButton button_camera;private ImageButton button_photo;
+    private static final int CHOOSE_PHOTO_CROP= 2;
+    private static final int TAKE_CAMERA_CROP=1;
+     private ImageButton button_camera;
+     private ImageButton button_photo;
     private static Button watch_button;
     private static ImageView picture ;
     private static  ProgressDialog progressDialog;
@@ -50,22 +52,20 @@ public class WatchFragment extends Fragment {
         button_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyCamera myCamera = new MyCamera((MainActivity) getActivity());
+                MyCamera myCamera = new MyCamera((MainActivity) getActivity(),TAKE_CAMERA_CROP);
                 myCamera.openCamera();
             }
         });
         button_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MyPhoto myPhoto = new MyPhoto((MainActivity)getActivity());
+                MyPhoto myPhoto = new MyPhoto((MainActivity)getActivity(),CHOOSE_PHOTO_CROP);
                 myPhoto.openPhoto();
             }
         });
         watch_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("vvvvvvvvvvvvvvvvvvvvvvvv");
-                System.out.println(MyResult.getImagePath());
                 progressDialog = ProgressDialog.show(getContext(), "请稍等...", "识别中...", false);
                 new Thread(new Runnable() {
                     @Override
