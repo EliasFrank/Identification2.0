@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import com.example.identification20.R;
+import com.example.identification20.myfragment.MeFragment;
 import com.example.identification20.myfragment.PreventFragment;
 import com.example.identification20.myfragment.WatchFragment;
 import com.example.identification20.myserver.MyCamera;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity  {
                         //切换到论坛页面
                         break;
                     case R.id.tab4:
+                        replaceFragment(new MeFragment());
                         break;
                 }
             }
