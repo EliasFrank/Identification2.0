@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import com.example.identification20.R;
+import com.example.identification20.myfragment.CommunityFragment;
 import com.example.identification20.myfragment.MeFragment;
 import com.example.identification20.myfragment.PreventFragment;
 import com.example.identification20.myfragment.WatchFragment;
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity  {
                         break;
                     case R.id.tab3:
                         //切换到论坛页面
+                        replaceFragment(new CommunityFragment());
                         break;
                     case R.id.tab4:
                         replaceFragment(new MeFragment());
