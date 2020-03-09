@@ -21,7 +21,7 @@ import android.widget.ImageView;
 import com.example.identification20.R;
 
 
-public class CricleImageView extends ImageView{
+public class CricleImageView extends androidx.appcompat.widget.AppCompatImageView{
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
     private static final Bitmap.Config BITMAP_CONFIG = Bitmap.Config.ARGB_8888;

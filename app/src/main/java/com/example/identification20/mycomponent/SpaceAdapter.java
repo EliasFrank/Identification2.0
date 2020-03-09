@@ -7,6 +7,9 @@ import android.widget.BaseAdapter;
 import java.util.List;
 
 public class SpaceAdapter extends BaseAdapter {
+    public SpaceAdapter(){
+
+    }
 
     @Override
     public int getCount() {
