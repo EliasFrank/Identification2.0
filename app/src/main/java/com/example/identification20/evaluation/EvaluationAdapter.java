@@ -84,7 +84,7 @@ public class EvaluationAdapter extends BaseAdapter {
         holder.userName.setText(item.getUserName());
         holder.createTime.setText(item.getCreatTime());
         holder.grade.setRating(item.getGrade());
-        setImage(context, holder.avater, item.avatar == null ? null : item.avatar.smallPicUrl);
+        setImage(context, holder.avatar, item.avatar == null ? null : item.avatar.smallPicUrl);
 
         ArrayList<ImageInfo> imageInfo = new ArrayList<>();
         List<EvaluationPic> imageDetails = item.getAttachments();
@@ -124,7 +124,7 @@ public class EvaluationAdapter extends BaseAdapter {
         @BindView(R.id.rb_grade)
         RatingBar grade;
         @BindView(R.id.avatar)
-        CricleImageView avater;
+        CricleImageView avatar;
         @BindView(R.id.lv_comments)
         ListView comments;
 

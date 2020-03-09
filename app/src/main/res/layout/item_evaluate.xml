@@ -14,7 +14,7 @@
         android:paddingRight="18.5dp"
         android:paddingTop="12.5dp">
 
-        <com.lzy.widget.tab.CircleIndicator
+        <com.example.identification20.mycomponent.CricleImageView
             android:id="@+id/avatar"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:background="@drawable/photo"/>
+                    android:background="@drawable/feed_more"/>
             </RelativeLayout>
 
             <com.lzy.widget.ExpandListView

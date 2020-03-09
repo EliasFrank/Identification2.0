@@ -33,8 +33,8 @@ public class CommunityFragment extends Fragment {
 //    @BindView(R.id.ptr)
 //    PtrClassFrameLayout ptr;
 
-//    @BindView(R.id.listView)
-//    ListView listView;
+    @BindView(R.id.listView)
+    ListView listView;
 
     private List<EvaluationItem> evaluationItemList = new ArrayList<>();
     Unbinder unbinder;
@@ -51,13 +51,13 @@ public class CommunityFragment extends Fragment {
 
 
 //        View emptyView = View.inflate(getActivity(), R.layout.item_empty, null);
-        ButterKnife.bind(getActivity());
+        ButterKnife.bind(this, view);
 
 //        listView.setEmptyView(emptyView);
         initEvaluation();
         mAdapter = new EvaluationAdapter(getContext(), evaluationItemList);
         System.out.println(mAdapter.getCount());
-        ListView listView = (ListView) view.findViewById(R.id.listView);
+//        ListView listView = (ListView) view.findViewById(R.id.listView);
         listView.setAdapter(mAdapter);
 
         return view;
