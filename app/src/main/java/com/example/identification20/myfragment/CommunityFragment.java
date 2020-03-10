@@ -1,15 +1,19 @@
 package com.example.identification20.myfragment;
 
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.identification20.R;
 import com.example.identification20.evaluation.EvaluationAdapter;
 import com.example.identification20.evaluation.bean.Avater;
@@ -17,6 +21,7 @@ import com.example.identification20.evaluation.bean.Evaluation;
 import com.example.identification20.evaluation.bean.EvaluationItem;
 import com.example.identification20.evaluation.bean.EvaluationPic;
 import com.example.identification20.evaluation.bean.EvaluationReply;
+import com.lzy.ninegrid.NineGridView;
 
 import org.apache.http.params.HttpParams;
 
@@ -58,6 +63,7 @@ public class CommunityFragment extends Fragment {
         mAdapter = new EvaluationAdapter(getContext(), evaluationItemList);
         System.out.println(mAdapter.getCount());
 //        ListView listView = (ListView) view.findViewById(R.id.listView);
+        NineGridView.setImageLoader(new GlideImageLoader());
         listView.setAdapter(mAdapter);
 
         return view;
@@ -68,6 +74,23 @@ public class CommunityFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
     }
+
+    private class GlideImageLoader implements NineGridView.ImageLoader{
+
+        @Override
+        public void onDisplayImage(Context context, ImageView imageView, String url) {
+            Glide.with(context).load(url)
+                    .placeholder(R.drawable.loading)
+                    .error(R.drawable.loading)
+                    .into(imageView);
+        }
+
+        @Override
+        public Bitmap getCacheImage(String url) {
+            return null;
+        }
+    }
+
     private void initEvaluation(){
         EvaluationItem evaluationItem = new EvaluationItem();
 
@@ -81,8 +104,8 @@ public class CommunityFragment extends Fragment {
         List<EvaluationPic> PicList = new ArrayList<>();
         EvaluationPic evaluationPic = new EvaluationPic();
         evaluationPic.setImageId("1");
-        evaluationPic.setImageUrl("http://superlpx.top/wordpress/wp-content/themes/kratos2.2/static/images/avatar/7.jpeg");
-        evaluationPic.setSmallImageUrl("http://superlpx.top/wordpress/wp-content/themes/kratos2.2/static/images/avatar/7.jpeg");
+        evaluationPic.setImageUrl("http://superlpx.top/wordpress/wp-content/uploads/2019/08/head.jpg");
+        evaluationPic.setSmallImageUrl("http://superlpx.top/wordpress/wp-content/uploads/2019/08/head.jpg");
         for (int i = 0; i < 9; i++) {
             evaluationPic.setAttachmentId(i);
             PicList.add(evaluationPic);

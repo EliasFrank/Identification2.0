@@ -107,8 +107,8 @@ public class EvaluationAdapter extends BaseAdapter {
     }
     private void setImage(Context context, ImageView imageView, String url) {
         Glide.with(context).load(url)//
-                .placeholder(R.drawable.ic_default_image)//
-                .error(R.drawable.ic_default_image)//
+                .placeholder(R.drawable.loading)//
+                .error(R.drawable.loading)//
                 .diskCacheStrategy(DiskCacheStrategy.ALL)//
                 .into(imageView);
     }
